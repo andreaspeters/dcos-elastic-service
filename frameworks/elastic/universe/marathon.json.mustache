@@ -104,6 +104,13 @@
     {{#master_nodes.volume_profile}}
     "MASTER_NODE_VOLUME_PROFILE": "{{master_nodes.volume_profile}}",
     {{/master_nodes.volume_profile}}
+
+    {{#master_nodes.host_volume.enabled}}
+    "MASTER_NODE_HOST_VOLUME_ENABLED": "{{master_nodes.host_volume.enabled}}",
+    "MASTER_NODE_HOST_VOLUME_NAME" : "{{master_nodes.host_volume.host_path}}",
+    {{/master_nodes.host_volume.enabled}}
+
+
     {{#master_nodes.external_volume.enabled}}
     "MASTER_NODE_EXTERNAL_VOLUME_ENABLED": "{{master_nodes.external_volume.enabled}}",
     "MASTER_NODE_EXTERNAL_VOLUME_DRIVER_OPTIONS": "{{master_nodes.external_volume.driver_options}}",

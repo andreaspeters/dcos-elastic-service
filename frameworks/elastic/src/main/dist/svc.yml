@@ -25,6 +25,13 @@ pods:
         soft: {{MASTER_NODE_RLIMIT_NOFILE_SOFT}}
         hard: {{MASTER_NODE_RLIMIT_NOFILE_HARD}}
     placement: '{{{MASTER_NODE_PLACEMENT}}}'
+    {{#MASTER_NODE_HOST_VOLUME_ENABLED}}
+    host-volumes:
+      host-volume:
+        container-path: "container-path"
+        host-path: {{MASTER_NODE_HOST_VOLUME_HOST_PATH}}
+        mode: RW
+    {{/MASTER_NODE_HOST_VOLUME_ENABLED}}
     {{#MASTER_NODE_EXTERNAL_VOLUME_ENABLED}}
     external-volumes:
       portworx-volume:
@@ -87,6 +94,7 @@ pods:
         env:
           {{#MASTER_NODE_EXTERNAL_VOLUME_ENABLED}}
           MASTER_NODE_EXTERNAL_VOLUME_ENABLED: {{MASTER_NODE_EXTERNAL_VOLUME_ENABLED}}
+          MASTER_NODE_HOST_VOLUME_ENABLED: {{MASTER_NODE_HOST_VOLUME_ENABLED}}
           {{/MASTER_NODE_EXTERNAL_VOLUME_ENABLED}}
           NODE_HEAP_MB: {{MASTER_NODE_HEAP_MB}}
           DATA_NODE_COUNT: {{DATA_NODE_COUNT}}

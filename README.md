@@ -14,6 +14,10 @@ page](https://docs.mesosphere.com/services/elastic/).
 | **Permissive** | (not tested) | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_112_Permissive&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_112_Permissive)/statusIcon"/></a> | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_113_Permissive&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_113_Permissive)/statusIcon"/></a> | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_master_Permissive&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_master_Permissive)/statusIcon"/></a> |
 | **Strict**     | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_111_Strict&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_111_Strict)/statusIcon"/></a> | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_112_Strict&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_112_Strict)/statusIcon"/></a> | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_113_Strict&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_113_Strict)/statusIcon"/></a> | <a href="https://teamcity.mesosphere.io/viewType.html?buildTypeId=DataServices_Elastic_IntegrationTests_DCOS_master_Strict&guest=1"><img src="https://teamcity.mesosphere.io/app/rest/builds/buildType:(id:DataServices_Elastic_IntegrationTests_DCOS_master_Strict)/statusIcon"/></a> |
 
+## Requirement
+
+- Java 1.8
+
 ## Development
 
 The dcos-commons git submodule is set up via
@@ -79,6 +83,16 @@ container and build the package there:
 ```bash
 DOCKER_COMMAND="frameworks/elastic/build.sh aws" dcos-commons/run_container.sh elastic --project $(pwd)
 ```
+
+#### Building local
+
+```bash
+cd dcos-commons
+./build.sh
+cd ../frameworks/elastic
+./build.sh local
+```
+
 
 ### Running tests
 
